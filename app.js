@@ -8,6 +8,13 @@ let headerB = document.querySelector(".blog")
 let headerC = document.querySelector(".elaqe")
 let headerY = document.querySelector(".yusif")
 
+var loader = document.querySelector(".loader")
+
+window.addEventListener("load",vanish);
+
+function vanish(){
+  loader.classList.add("disappear")
+}
 
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursorJ");
