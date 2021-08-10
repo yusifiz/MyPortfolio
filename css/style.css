@@ -51,6 +51,15 @@
     color: gray;
 }
 
+#toggler{
+    background-color: rgb(241,214,0);
+
+}
+
+#toggler:focus{
+    box-shadow: none;
+}
+
 .main-header{
     /* height: 500px; */
     background-position:50%;
@@ -486,6 +495,11 @@
     width: 150px;
 }
 
+.contact-list a{
+    color: white;
+    width: 150px;
+    text-decoration: none;
+}
 
 .btmInput{
     max-width: 500px;
@@ -611,6 +625,13 @@ div .sticky{
      transition: all 0.3s ease;
      box-shadow: 0 5px 8px 0 rgb(0 0 0 / 14%);
  }
+
+/* span .sticky{
+    padding: 5px 100px;
+     background: white;
+     transition: all 0.3s ease;
+     box-shadow: 0 5px 8px 0 rgb(0 0 0 / 14%);
+ } */
 
 .fb-slide img{
     width: 100px;
