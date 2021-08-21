@@ -183,10 +183,10 @@ typeY()
     if(scrolled > 1450){
         typeP()
     }
-    if(scrolled > 3550){
+    if(scrolled > 3150){
         typeB()
     }
-    if(scrolled > 4300){
+    if(scrolled > 3600){
         typeC()
     }
 
