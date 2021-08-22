@@ -348,7 +348,7 @@
     -o-object-fit: cover;
     object-fit: cover;
     filter: grayscale(1);
-    
+    transition: all 0.4s ease-in-out;
     box-sizing: border-box;
     /* box-shadow: 0 1px 31px rgb(0 0 0 / 9%); */
     cursor: pointer;
@@ -361,7 +361,7 @@
 .pj-card img:hover{
     filter: grayscale(0);
     transform: scale(1.2);
-    transition: all 0.5s ease-in-out;
+    
     
 }
 
