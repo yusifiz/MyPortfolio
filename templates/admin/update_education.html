@@ -1,0 +1,62 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form class="mb-5" action="/educationUpdate/{{education.id}}" method="POST">
+                        <h2>Update education</h2>
+                        <hr>
+                        <div class="mb-3">
+                          
+                          <input type="text" class="form-control" name="edu_name" value="{{education.edu_name}}" placeholder="Education name..">
+                          
+                        </div>
+                        <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="edu_start_date" value="{{education.edu_start_date}}" placeholder="Start date..">
+                            
+                          </div>
+                          <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="edu_finish_date" value="{{education.edu_finish_date}}" placeholder="Finish date..">
+                            
+                          </div>
+                          <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="edu_content" value="{{education.edu_content}}" placeholder="Education content..">
+                            
+                          </div>
+                     
+                        
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                      </form>
+                      
+                </div>
+            </div>
+            
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

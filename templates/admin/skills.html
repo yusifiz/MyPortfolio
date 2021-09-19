@@ -1,0 +1,88 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form class="mb-5" action="/admin/skills" method="POST" enctype="multipart/form-data">
+                        <h2>Add new skill</h2>
+                        <hr>
+                        <div class="mb-3">
+                          
+                          <input type="text" class="form-control" name="skill_name" placeholder="Skill name..">
+                          
+                        </div>
+                        <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="skill_url" placeholder="Link..">
+                            
+                          </div>
+                        <div class="mb-3">
+                          
+                          <input type="file" class="form-control btn btn-warning" name="skill_img">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                      </form>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Skills Table</h4>
+                        <h6 class="card-subtitle">Add skill <code>.table</code></h6>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Link</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for skill in skills %}
+                                    <tr>
+                                        <td>{{skill.id}}</td>
+                                        <td>{{skill.skill_name}}</td>
+                                        <td>{{skill.skill_url}}</td>
+                                        <td><a href="/skillUpdate/{{skill.id}}"><i class="fas fa-pencil-alt"></i></a></td>
+                                        <td><a href="/skillDelete/{{skill.id}}"><i class="bi bi-trash-fill"></i></a></td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

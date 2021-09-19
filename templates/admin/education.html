@@ -1,0 +1,98 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form class="mb-5" action="/admin/education" method="POST">
+                        <h2>Add new education</h2>
+                        <hr>
+                        <div class="mb-3">
+                          
+                          <input type="text" class="form-control" name="edu_name" placeholder="Education name..">
+                          
+                        </div>
+                        <div class="mb-3">
+                          
+                            <input type="date" class="form-control" name="edu_start_date" placeholder="Start date..">
+                            
+                          </div>
+                          <div class="mb-3">
+                          
+                            <input type="date" class="form-control" name="edu_finish_date" placeholder="Finish date..">
+                            
+                          </div>
+                          <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="edu_content" placeholder="Education content..">
+                            
+                          </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                      </form>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Education Table</h4>
+                        <h6 class="card-subtitle">Add education <code>.table</code></h6>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Education Name</th>
+                                        <th>Start date</th>
+                                        <th>Finish date</th>
+                                        <th>Education content</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for edu in education %}
+                                    <tr>
+                                        <td>{{edu.id}}</td>
+                                        <td>{{edu.edu_name}}</td>
+                                        <td>{{edu.edu_start_date}}</td>
+                                        <td>{{edu.edu_finish_date}}</td>
+                                        <td>{{edu.edu_content}}</td>
+                                        <td><a href="/educationUpdate/{{edu.id}}"><i class="fas fa-pencil-alt"></i></a></td>
+                                        <td><a href="/educationDelete/{{edu.id}}"><i class="bi bi-trash-fill"></i></a></td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}
