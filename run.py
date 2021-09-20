@@ -1,5 +1,6 @@
 from flask import Flask,redirect,url_for,render_template,request
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.dialects import postgresql
 import os
 from flask_migrate import Migrate
 from flask_mail import Mail,Message
@@ -9,13 +10,14 @@ from flask_login import LoginManager, UserMixin, login_manager, login_user, logi
 app=Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 UPLOAD_FOLDER = 'static/uploads'
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 
-ENV = 'prod'
+ENV = 'dev'
 
 if ENV == 'dev':
     app.debug = True
     # app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
-    app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:yusif@localhost/data'
+    app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:yusif@localhost:5432/data'
 else:
     app.debug = False
     app.config['SQLALCHEMY_DATABASE_URI']='postgres://ksbodoegarfpkk:91cf7e3db19414e1330896542c9e287e33d9e3bfa7b510db4526a0a8e758c52e@ec2-3-233-43-103.compute-1.amazonaws.com:5432/d521jpnfv0cghm'
@@ -45,4 +47,4 @@ from app.routes import *
 from admin.routes import *
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
