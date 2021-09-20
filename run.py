@@ -12,7 +12,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 UPLOAD_FOLDER = 'static/uploads'
 # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 
-ENV = 'dev'
+ENV = 'prod'
 
 if ENV == 'dev':
     app.debug = True
@@ -20,7 +20,7 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:yusif@localhost:5432/data'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI']='postgres://ksbodoegarfpkk:91cf7e3db19414e1330896542c9e287e33d9e3bfa7b510db4526a0a8e758c52e@ec2-3-233-43-103.compute-1.amazonaws.com:5432/d521jpnfv0cghm'
+    app.config['SQLALCHEMY_DATABASE_URI']='postgresql://ksbodoegarfpkk:91cf7e3db19414e1330896542c9e287e33d9e3bfa7b510db4526a0a8e758c52e@ec2-3-233-43-103.compute-1.amazonaws.com:5432/d521jpnfv0cghm'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
