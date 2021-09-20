@@ -9,7 +9,18 @@ from flask_login import LoginManager, UserMixin, login_manager, login_user, logi
 app=Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 UPLOAD_FOLDER = 'static/uploads'
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
+
+ENV = 'prod'
+
+if ENV == 'dev':
+    app.debug = True
+    # app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
+    app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:yusif@localhost/data'
+else:
+    app.debug = False
+    app.config['SQLALCHEMY_DATABASE_URI']='postgres://ksbodoegarfpkk:91cf7e3db19414e1330896542c9e287e33d9e3bfa7b510db4526a0a8e758c52e@ec2-3-233-43-103.compute-1.amazonaws.com:5432/d521jpnfv0cghm'
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -23,6 +34,8 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "admin_login"
 
+
+
 from models import *
 migrate = Migrate(app, db)
 #app routes
@@ -32,4 +45,4 @@ from app.routes import *
 from admin.routes import *
 
 if __name__ == '__main__':
-    app.run(port=5000,debug=True)
+    app.run(debug=True)
