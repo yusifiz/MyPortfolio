@@ -24,13 +24,13 @@ else:
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = "yusifosmanov475@gmail.com"
-app.config['MAIL_PASSWORD'] = "osmanov91861001"
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-mail = Mail(app)
+# app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+# app.config['MAIL_PORT'] = 465
+# app.config['MAIL_USERNAME'] = "yusifosmanov475@gmail.com"
+# app.config['MAIL_PASSWORD'] = "osmanov91861001"
+# app.config['MAIL_USE_TLS'] = False
+# app.config['MAIL_USE_SSL'] = True
+# mail = Mail(app)
 db=SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
