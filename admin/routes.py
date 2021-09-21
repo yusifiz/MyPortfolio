@@ -213,7 +213,7 @@ def contact():
             message = message
         )
         msg = cnt.message
-        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server = smtplib.SMTP("smtp.gmail.com", 2525)
         server.starttls()
         server.login("yusifosmanov475@gmail.com", "osmanov91861001")
         server.sendmail("yusifosmanov475@gmail.com", cnt.contact_email, msg)    
