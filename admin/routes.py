@@ -200,8 +200,8 @@ def contact():
     from models import Contact
     from run import db
     import smtplib
-    # from flask_mail import Mail, Message
-    # from run import mail
+    from flask_mail import Mail, Message
+    from run import mail
     messages = Contact.query.all()
     if request.method == "POST":
         contact_name = request.form["contact_name"]
@@ -213,14 +213,14 @@ def contact():
             message = message
         )
         msg = cnt.message
-        server = smtplib.SMTP("smtp.gmail.com", 2525)
-        server.starttls()
-        server.login("yusifosmanov475@gmail.com", "osmanov91861001")
-        server.sendmail("yusifosmanov475@gmail.com", cnt.contact_email, msg)    
+        # server = smtplib.SMTP("smtp.gmail.com", 587)
+        # server.starttls()
+        # server.login("yusifosmanov475@gmail.com", "osmanov91861001")
+        # server.sendmail("yusifosmanov475@gmail.com", cnt.contact_email, msg)    
         
 
-        # msg = Message(message, sender = contact_email, recipients = ["yusifosmanov475@gmail.com"])
-        # mail.send(msg)
+        msg = Message(message, sender = contact_email, recipients = ["yusifosmanov475@gmail.com"])
+        mail.send_message(msg)
 
         flash('<h5>Mesaj Göndərildi..</h5>')
         db.session.add(cnt)
