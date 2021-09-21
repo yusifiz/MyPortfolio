@@ -220,7 +220,7 @@ def contact():
         
 
         msg = Message(message, sender = contact_email, recipients = ["yusifosmanov475@gmail.com"])
-        mail.send_message(msg)
+        mail.send(msg)
 
         flash('<h5>Mesaj Göndərildi..</h5>')
         db.session.add(cnt)
