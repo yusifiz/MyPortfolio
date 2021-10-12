@@ -217,9 +217,9 @@ def contact():
         # server.starttls()
         # server.login("yusifosmanov475@gmail.com", "osmanov91861001")
         # server.sendmail("yusifosmanov475@gmail.com", cnt.contact_email, msg)    
-        
+        mygmail = "yusifosmanov475@gmail.com"
 
-        msg = Message(message, sender = contact_email, recipients = ["yusifosmanov475@gmail.com"])
+        msg = Message(message, sender = contact_email, recipients = [mygmail])
         mail.send(msg)
 
         flash('<h5>Mesaj Göndərildi..</h5>')
